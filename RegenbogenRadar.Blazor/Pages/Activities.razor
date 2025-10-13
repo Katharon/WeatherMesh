@@ -1,0 +1,37 @@
+﻿@page "/activities"
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Web
+@using System.Globalization
+@using System.Text.Json
+@inject HttpClient Http
+
+<PageTitle>Aktivitäten</PageTitle>
+
+<div id="search-header">
+    <h1>Aktivitäten</h1>
+    <div>
+        <input id="search" type="search"
+               @bind="query"
+               @bind:event="oninput"
+               @onkeydown="OnKeyDown" />
+        <button class="btn-slim" @onclick="SearchAsync">Suchen</button>
+    </div>
+</div>
+
+@code {
+    private string query = string.Empty;
+
+    // ENTER-Taste abfangen
+    private async Task OnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SearchAsync();
+        }
+    }
+
+    private async Task SearchAsync()
+    {
+        await Task.CompletedTask;
+    }
+}

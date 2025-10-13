@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Blazor + API",
+    "Projects": [
+      {
+        "Path": "RegenbogenRadar.Blazor\\RegenbogenRadar.Blazor.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "RegenbogenRadar.WebApi\\RegenbogenRadar.WebApi.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

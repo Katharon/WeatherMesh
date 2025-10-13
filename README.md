@@ -1,1 +1,1 @@
-# Regenbogen-Radar
+# Blazor-Wetter-App-WASM

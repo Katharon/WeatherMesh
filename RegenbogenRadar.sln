@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11018.127
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.Blazor", "RegenbogenRadar.Blazor\RegenbogenRadar.Blazor.csproj", "{60BA43F8-605C-2A26-FF6E-0F94ADF02B5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.AppHost", "RegenbogenRadar.AppHost\RegenbogenRadar.AppHost.csproj", "{26C52BE3-4F13-4372-9F33-7A5FD6EADC24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.ServiceDefaults", "RegenbogenRadar.ServiceDefaults\RegenbogenRadar.ServiceDefaults.csproj", "{54A8F210-56C1-A2F3-1CE7-2707F56FE6FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.WebApi", "RegenbogenRadar.WebApi\RegenbogenRadar.WebApi.csproj", "{11167E74-78BE-D955-5478-A930E3081469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.Domain", "RegenbogenRadar.Domain\RegenbogenRadar.Domain.csproj", "{14BF01F4-2CF0-4492-8008-538C7A67CF55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60BA43F8-605C-2A26-FF6E-0F94ADF02B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BA43F8-605C-2A26-FF6E-0F94ADF02B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BA43F8-605C-2A26-FF6E-0F94ADF02B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BA43F8-605C-2A26-FF6E-0F94ADF02B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26C52BE3-4F13-4372-9F33-7A5FD6EADC24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C52BE3-4F13-4372-9F33-7A5FD6EADC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C52BE3-4F13-4372-9F33-7A5FD6EADC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C52BE3-4F13-4372-9F33-7A5FD6EADC24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54A8F210-56C1-A2F3-1CE7-2707F56FE6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54A8F210-56C1-A2F3-1CE7-2707F56FE6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54A8F210-56C1-A2F3-1CE7-2707F56FE6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54A8F210-56C1-A2F3-1CE7-2707F56FE6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11167E74-78BE-D955-5478-A930E3081469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11167E74-78BE-D955-5478-A930E3081469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11167E74-78BE-D955-5478-A930E3081469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11167E74-78BE-D955-5478-A930E3081469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4E2A7D1-35A1-4CFE-8DA8-503C2251666F}
+	EndGlobalSection
+EndGlobal
