@@ -1,23 +1,32 @@
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
-namespace RegenbogenRadar.Blazor;
-
-public class Program
+namespace RegenbogenRadar.Blazor
 {
-    public static async Task Main(string[] args)
+    using Microsoft.AspNetCore.Components.Web;
+    using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+    using RegenbogenRadar.Blazor.Services;
+    using Microsoft.Extensions.DependencyInjection;
+
+    public class Program
     {
-        var builder = WebAssemblyHostBuilder.CreateDefault(args);
-        builder.RootComponents.Add<App>("#app");
-        builder.RootComponents.Add<HeadOutlet>("head::after");
-
-        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-        builder.Services.AddMsalAuthentication(options =>
+        public static async Task Main(string[] args)
         {
-            builder.Configuration.Bind("AzureAd", options.ProviderOptions.Authentication);
-        });
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("#app");
+            builder.RootComponents.Add<HeadOutlet>("head::after");
 
-        await builder.Build().RunAsync();
+            builder.Services.AddHttpClient<BackendService>(client =>
+            {
+                // Adress must be the same as the WebAPI project
+                var apiBase = new Uri("https://localhost:7219/");
+
+                client.BaseAddress = apiBase;
+            });
+
+            builder.Services.AddMsalAuthentication(options =>
+            {
+                builder.Configuration.Bind("AzureAd", options.ProviderOptions.Authentication);
+            });
+
+            await builder.Build().RunAsync();
+        }
     }
 }

@@ -1,14 +1,12 @@
 namespace RegenbogenRadar.WebApi
 {
-    using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Localization;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Identity.Abstractions;
     using Microsoft.Identity.Web;
-    using Microsoft.Identity.Web.Resource;
-    using OpenAI;
     using OpenAI.Chat;
-    using OpenAI.Responses;
+    using Scalar.AspNetCore;
+    using System.Globalization;
 
     public class Program
     {
@@ -21,15 +19,19 @@ namespace RegenbogenRadar.WebApi
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
-            // HttpClient for OpenAI
-            //builder.Services.AddHttpClient("OpenAiClient", client =>
-            //{
-            //    client.BaseAddress = new Uri("https://api.openai.com/");
-            //    client.Timeout = TimeSpan.FromSeconds(60); // Globaler Timeout.
-            //});
+            // HttpClient für Geocoding
+            builder.Services.AddHttpClient("GeocodingClient", client =>
+            {
+                client.BaseAddress = new Uri("https://geocoding-api.open-meteo.com/v1/");
+            });
 
+            // HttpClient für Wetterdaten
+            builder.Services.AddHttpClient("WeatherForecastClient", client =>
+            {
+                client.BaseAddress = new Uri("https://api.open-meteo.com/v1/");
+            });
 
-            // OpenAI-Client in DI registrieren
+            // HttpClient für AI-Recommendations
             builder.Services.AddSingleton<ChatClient>(serviceProvider =>
             {
                 var config = serviceProvider.GetRequiredService<IConfiguration>();
@@ -59,13 +61,12 @@ namespace RegenbogenRadar.WebApi
             builder.Services.AddOpenApi();
 
             var app = builder.Build();
-
+            
             app.MapDefaultEndpoints();
-
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.MapScalarApiReference();
             }
 
             app.UseCors("DevCors");

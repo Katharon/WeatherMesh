@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.WebApi", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.Domain", "RegenbogenRadar.Domain\RegenbogenRadar.Domain.csproj", "{14BF01F4-2CF0-4492-8008-538C7A67CF55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.Infrastructure", "RegenbogenRadar.Infrastructure\RegenbogenRadar.Infrastructure.csproj", "{49059962-C5F0-4E02-95FF-3279532465EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.Application", "RegenbogenRadar.Application\RegenbogenRadar.Application.csproj", "{66D75709-624F-4C87-96DD-6FAADC0F19D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenbogenRadar.Shared", "RegenbogenRadar.Shared\RegenbogenRadar.Shared.csproj", "{F87B7DED-5D3B-4A76-BBC4-99F1A40D967F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14BF01F4-2CF0-4492-8008-538C7A67CF55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49059962-C5F0-4E02-95FF-3279532465EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49059962-C5F0-4E02-95FF-3279532465EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49059962-C5F0-4E02-95FF-3279532465EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49059962-C5F0-4E02-95FF-3279532465EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D75709-624F-4C87-96DD-6FAADC0F19D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D75709-624F-4C87-96DD-6FAADC0F19D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D75709-624F-4C87-96DD-6FAADC0F19D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D75709-624F-4C87-96DD-6FAADC0F19D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F87B7DED-5D3B-4A76-BBC4-99F1A40D967F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F87B7DED-5D3B-4A76-BBC4-99F1A40D967F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F87B7DED-5D3B-4A76-BBC4-99F1A40D967F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F87B7DED-5D3B-4A76-BBC4-99F1A40D967F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

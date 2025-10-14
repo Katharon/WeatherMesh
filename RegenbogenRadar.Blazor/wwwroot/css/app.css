@@ -113,30 +113,20 @@ code {
     text-align: start;
 }
 
-.table.wx {
-    table-layout: fixed;
-    width: 100%;
-    margin-bottom: 50px;
+#search-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
-    .table.wx col.col-date {
-        width: auto;
+    #search-header div {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: row;
     }
-    .table.wx col.col-temp {
-        width: auto;
-    }
-    .table.wx col.col-summary {
-        width: auto;
-    }
-    .table.wx td, .table.wx th {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .table.wx th, .table.wx td {
-        vertical-align: middle;
-    }
-        .table.wx td.temp, .table.wx th.temp {
-            text-align: right;
+        #search-header div button {
+            margin-left: 2px;
         }
 
 .btn-slim {
@@ -151,27 +141,47 @@ code {
     outline: none;
     box-shadow: none;
 }
+
     .btn-slim:hover {
         border: 1px solid #484848;
     }
 
-.ai-recommendation
-{
-    margin-bottom: 50px;
+.ai-recommendation {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #e7e7e7;
+    border: 1px solid none;
+    border-radius: 10px;
 }
 
-#search-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
+.table.wx {
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 30px;
 }
-    #search-header div {
-        padding-left: 10px;
-        display: flex;
-        flex-direction: row;
+
+    .table.wx col.col-date {
+        width: auto;
     }
-        #search-header div button {
-            margin-left: 2px;
+
+    .table.wx col.col-temp {
+        width: auto;
+    }
+
+    .table.wx col.col-summary {
+        width: auto;
+    }
+
+    .table.wx td, .table.wx th {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table.wx th, .table.wx td {
+        vertical-align: middle;
+    }
+
+        .table.wx td.temp, .table.wx th.temp {
+            text-align: right;
         }
