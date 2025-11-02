@@ -1,5 +1,6 @@
 ﻿namespace RegenbogenRadar.WebApi.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using OpenAI.Chat;
     using RegenbogenRadar.Shared.AiRecommendation;
@@ -7,6 +8,7 @@
 
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class AiRecommendationController(ChatClient chatClient) : ControllerBase
     {
         private readonly ChatClient chatClient = chatClient ?? throw new ArgumentNullException(nameof(chatClient));
@@ -31,7 +33,7 @@
             userPrompt.AppendLine($"Antworte nur in prägnanten 2-3 Sätzen und schön formatiert.");
             userPrompt.AppendLine($"Ich bin eine API, du kannst keine Rückfragen stellen!");
             userPrompt.AppendLine($"Antworte so schnell wie möglich und in freundlicher Prosa!");
-            foreach (var hour in hourlyForecast.Take(8))
+            foreach (var hour in hourlyForecast.Take(24))
             {
                 userPrompt.AppendLine($"{hour.Time} - {hour.TemperatureC}°C - {hour.Summary}");
             }

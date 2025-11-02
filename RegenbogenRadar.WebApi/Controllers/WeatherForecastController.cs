@@ -1,5 +1,6 @@
 ﻿namespace RegenbogenRadar.WebApi.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using RegenbogenRadar.Domain.WeatherForecast;
     using RegenbogenRadar.Shared.Geocoding;
@@ -9,6 +10,7 @@
 
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class WeatherForecastController(IHttpClientFactory httpClientFactory) : ControllerBase
     {
         private readonly IHttpClientFactory httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));

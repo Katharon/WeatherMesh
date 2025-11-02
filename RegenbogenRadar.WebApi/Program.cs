@@ -1,12 +1,10 @@
 namespace RegenbogenRadar.WebApi
 {
     using Microsoft.AspNetCore.Authentication.JwtBearer;
-    using Microsoft.AspNetCore.Localization;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Identity.Web;
     using OpenAI.Chat;
     using Scalar.AspNetCore;
-    using System.Globalization;
 
     public class Program
     {
@@ -18,6 +16,23 @@ namespace RegenbogenRadar.WebApi
             // Authentication
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+
+            // Frontend auf anderem Origin => CORS aktivieren
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("CorsAll", policy =>
+                {
+                    policy.WithOrigins(
+                            "https://localhost:4200",                                                        // lokal
+                            "https://localhost:7018",                                                        // lokal
+                            "https://r2blazor-grbhfdd3h6h8e9d2.germanywestcentral-01.azurewebsites.net",     // Azure App Service
+                            "https://regenbogenradar-fd-hycuf8eeabhuaycx.z03.azurefd.net"                    // Azure Front Door
+                            //"https://<deine-custom-domain.tld>"                                            // Domain
+                        )
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
 
             // HttpClient für Geocoding
             builder.Services.AddHttpClient("GeocodingClient", client =>
@@ -39,24 +54,15 @@ namespace RegenbogenRadar.WebApi
                 var model = config["AI_MODEL"];
 
                 if (string.IsNullOrWhiteSpace(apiKey))
-                    throw new InvalidOperationException("API Key fehlt in Secrets.json");
+                    throw new InvalidOperationException("API Key fehlt in den Secrets.");
                 if (string.IsNullOrWhiteSpace(model))
-                    throw new InvalidOperationException("API Model fehlt in Secrets.json");
+                    throw new InvalidOperationException("API Model fehlt in den Secrets.");
 
                 return new ChatClient(model, apiKey);
             });
 
-            // Frontend auf anderem Origin => CORS aktivieren
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("DevCors", policy =>
-                {
-                    policy.WithOrigins("https://localhost:7018")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod();
-                });
-            });
 
+            builder.Services.AddHealthChecks();
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
 
@@ -69,7 +75,8 @@ namespace RegenbogenRadar.WebApi
                 app.MapScalarApiReference();
             }
 
-            app.UseCors("DevCors");
+            app.UseCors("CorsAll");
+            app.MapHealthChecks("/healthz");
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
